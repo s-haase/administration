@@ -27,6 +27,8 @@
         </sw-card>
         {% endblock %}
 
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_product_detail_base_download_card %}
         <sw-card
             v-show="productStates.includes('is-download')"
             class="sw-product-detail-base__downloads"
@@ -34,12 +36,17 @@
             :is-loading="loading.product || loading.customFieldSets || loading.downloads"
             position-identifier="sw-product-detail-base-downloads"
         >
+            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+            {% block sw_product_detail_base_download_title %}
             <template #title>
                 <div class="sw-card__title">
                     {{ $tc('sw-product.detailBase.cardTitleDownloads') }}
                 </div>
             </template>
+            {% endblock %}
 
+            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+            {% block sw_product_detail_base_download_form %}
             <sw-product-download-form
                 v-if="mediaFormVisible"
                 :product-id="product.id"
@@ -48,7 +55,9 @@
                 required
                 @media-open="onOpenDownloadMediaModal"
             />
+            {% endblock %}
         </sw-card>
+        {% endblock %}
 
         <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
         {% block sw_product_detail_base_price_card %}
